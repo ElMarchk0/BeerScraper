@@ -18,9 +18,9 @@ nb_links = len(soup.find_all('a'))
 
 print(f"There are {nb_links} links in this page")
 
-print(soup.get_text())
+pagespace = soup.find(id="section-beers-by-category")
 
-
+print(pagespace)
 
 print(soup.title)
 
