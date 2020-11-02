@@ -4,6 +4,7 @@ import requests
 
 from collections import Counter
 
+import json
 
 response = requests.get("https://justbeerapp.com/guides/ca/bc/victoria/beers")
 
@@ -18,10 +19,23 @@ nb_links = len(soup.find_all('a'))
 
 print(f"There are {nb_links} links in this page")
 
-pagespace = soup.find(id="section-beers-by-category")
+pagespace = soup.find_all(id="section-beers-by-category")
 
-print(pagespace)
+#brewery = soup.find_all("span", attributes={"class":"pretitle"})
 
-print(soup.title)
+#name_of_beers = soup.find_all("h3") #works!!!
+script = soup.find_all("script")
+
+print(script)
+
+from collections import Counter
+all_hrefs = [a.get('href') for a in soup.find_all('a')]
+
+#print(all_hrefs)
+
+
+
+
+
 
 
